@@ -1,1 +1,3 @@
-git log -5 --pretty="format:%H"
+#!/bin/bash/
+
+git log --format="%H" -n 5
