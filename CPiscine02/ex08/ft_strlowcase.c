@@ -6,8 +6,22 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:16:39 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/07/19 14:16:41 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/07/22 11:37:42 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+char	*ft_strlowcase(char *str)
+{
+	int	i;
 
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			str[i] += 32;
+		}
+		i++;
+	}
+	return (str);
+}
