@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:15:06 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/07/20 13:15:29 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:50:09 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_str_is_lowercase(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (!(str[i] >= 'a' || str[i] <= 'z'))
+		if (!(str[i] >= 'a' && str[i] <= 'z'))
 			return (0);
 		i++;
 	}

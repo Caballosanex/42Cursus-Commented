@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
+/*   By: xagarcia <xagarcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/19 14:15:31 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/07/22 14:50:20 by alexsanc         ###   ########.fr       */
+/*   Created: 2022/07/24 14:07:03 by xagarcia          #+#    #+#             */
+/*   Updated: 2022/07/24 14:10:57 by xagarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_uppercase(char *str)
-{
-	int	i;
+#include <unistd.h>
+#include <stdlib.h>
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (!(str[i] >= 'A' && str[i] <= 'Z'))
-			return (0);
-		i++;
-	}
-	return (1);
-}
+int	get_argv(int argc,  char **argv, char **nb, char **dictpath)

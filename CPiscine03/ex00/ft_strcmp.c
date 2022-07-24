@@ -1,44 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/19 14:17:17 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/07/23 16:24:48 by alexsanc         ###   ########.fr       */
+/*   Created: 2022/07/23 13:53:45 by alexsanc          #+#    #+#             */
+/*   Updated: 2022/07/23 16:25:45 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+int	ft_strcmp(char *s1, char *s2)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	while (i + 1 < size && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	if (i < size)
-	{
-		dest[i] = '\0';
-	}
-	while (src[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+			i++;
+	return (s1[i] - s2[i]);
 }
 /*
 int	main(void)
 {
-	char			dest[5];
-	char			src[3] = "111";
-	unsigned int	size;
+	char *str1 = "abc";
+	char *str2 = "def";
 
-	size = 6;
-	ft_strlcpy(dest, src, size);
-	printf ("%d", ft_strlcpy(dest, src, size));
-	return (0);
-}*/
+	printf("Res: %d", ft_strcmp(str1, str2));
+}
+*/
