@@ -6,13 +6,13 @@
 #    By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/24 14:07:18 by alexsanc          #+#    #+#              #
-#    Updated: 2022/07/24 14:23:12 by alexsanc         ###   ########.fr        #
+#    Updated: 2022/07/24 21:38:22 by alexsanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FILE = rush-02
 
-FOLDER = main.c atoi.c deconu.c ft_split.c write_data.c
+FOLDER = main.c ft_atoi.c deconu.c
 
 INCLUDE = ${SRC:.c=.o}
 

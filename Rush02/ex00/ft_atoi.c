@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 13:54:03 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/07/25 15:53:25 by alexsanc         ###   ########.fr       */
+/*   Created: 2022/07/24 20:46:12 by alexsanc          #+#    #+#             */
+/*   Updated: 2022/07/24 20:46:32 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_atoi(const char *str)
 {
-	unsigned int	i;
+	int	result;
+	int	neg;
 
-	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0' && i < n)
+	neg = 1;
+	result = 0;
+	while (*str && (*str == ' ' || *str == '\n' || *str == '\t'
+			|| *str == '\v' || *str == '\f' || *str == '\r'))
+		++str;
+	if (*str == '-')
+		neg = -1;
+	if (*str == '-' || *str == '+')
+		++str;
+	while (*str && *str >= '0' && *str <= '9')
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		++i;
+		result = result * 10 + (*str - 48);
+		++str;
 	}
-	if (i != n)
-		return (s1[i] - s2[i]);
-	return (0);
+	return (result * neg);
 }

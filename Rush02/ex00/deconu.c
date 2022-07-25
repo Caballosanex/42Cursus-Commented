@@ -6,7 +6,7 @@
 /*   By: shortas- <shortas-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 12:50:58 by shortas-          #+#    #+#             */
-/*   Updated: 2022/07/23 20:05:48 by shortas-         ###   ########.fr       */
+/*   Updated: 2022/07/24 21:42:02 by xagarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,23 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-void ft_putchar(char c)
+int	ft_iterative_power(int nb, int power)
 {
-	write(1, &c, 1);
+	int	res;
+	int	i;
+
+	res = nb;
+	i = 1;
+	if (nb == 0 && power == 0)
+		return (0);
+	while (i < power)
+	{
+		res *= nb;
+		i++;
+	}
+	return (res);
 }
 
-// Printa String
 void	ft_putstr(char *str)
 {
 	int	i;
@@ -27,18 +38,18 @@ void	ft_putstr(char *str)
 	i = 0;
 	while (str[i])
 	{
-		ft_putchar(str[i]);
+		write(1, &str[i], 1);
 		i++;
 	}
+	write(1, " ", 1);
 }
 
-// Cuenta los numeros
-int	nbcount(int nb) 
+int	nbcount(int nb)
 {
-	int n;
+	int	n;
 
 	n = 1;
-	while(nb > 9)
+	while (nb > 9)
 	{
 		nb /= 10;
 		n++;
@@ -46,24 +57,23 @@ int	nbcount(int nb)
 	return (n);
 }
 
-void deconu(int nb)
+void	printa_num(int nb, int len)
 {
-	int found;
-	int nb2;
-	int ndigits;
-	int r;
-	int len = nbcount(nb);
- 	char *onedigits[20];
-    onedigits[0] = "Zero";
-    onedigits[1] = "One";
-    onedigits[2] = "Two";
-    onedigits[3] = "Three";
-    onedigits[4] = "Four";
-    onedigits[5] = "Five";
-    onedigits[6] = "Six";
-    onedigits[7] = "Seven";
-    onedigits[8] = "Eight";
-    onedigits[9] = "Nine";
+	int		r;
+	char	*onedigits[20];
+	char	*tens[8];
+	char	*tenpow[4];
+
+	onedigits[0] = "Zero";
+	onedigits[1] = "One";
+	onedigits[2] = "Two";
+	onedigits[3] = "Three";
+	onedigits[4] = "Four";
+	onedigits[5] = "Five";
+	onedigits[6] = "Six";
+	onedigits[7] = "Seven";
+	onedigits[8] = "Eight";
+	onedigits[9] = "Nine";
 	onedigits[10] = "Ten";
 	onedigits[11] = "Eleven";
 	onedigits[12] = "Twelve";
@@ -74,8 +84,6 @@ void deconu(int nb)
 	onedigits[17] = "Seventeen";
 	onedigits[18] = "Eighteen";
 	onedigits[19] = "Nineteen";
-
-	char *tens[8];
 	tens[0] = "Twenty";
 	tens[1] = "Thirty";
 	tens[2] = "Forty";
@@ -84,64 +92,62 @@ void deconu(int nb)
 	tens[5] = "Seventy";
 	tens[6] = "Eighty";
 	tens[7] = "Ninety";
-
-	char *tenpow[2];
 	tenpow[0] = "Hundred";
 	tenpow[1] = "Thousand";
-
-	printf("valor nb : %d \n", nb);
+	tenpow[2] = "Million";
+	tenpow[3] = "Billion";
 	r = 0;
-	found = 0;
-	// Reverse number
-	/*
-	while (nb > 0)
-	{	
-		r = nb % 10;
-		nb2 = nb2 * 10 + r;
-		nb /= 10;
-	}
-	printf("valor nb2 : %d \n", nb);
-	*/
-	r = nb;
-	printf("Numero de digitos : %d \n",nbcount(nb));
-	while (nb != 0)
+	if (len == 1 || nb < 20)
 	{
-		if (nb < 20)
+		ft_putstr(onedigits[nb]);
+	}
+	else if (len == 2 && nb > 19)
+	{
+	r = nb / ft_iterative_power(10, len - 1);
+		if (r % 10 == 0)
+			ft_putstr(tens[r - 2]);
+		else
+			ft_putstr(tens[r - 2]);
+		ft_putstr(onedigits[nb % 10]);
+	}
+	else if (len >= 3)
+	{
+		if (len == 3)
 		{
-		    //unidades 
-			printf("%s\n ",onedigits[nb]);
-		    nb = 0; 
+			r = nb / ft_iterative_power(10, len - 1);
+			ft_putstr(onedigits[r]);
+			ft_putstr(tenpow[0]);
 		}
-		else if (len == 2)	
+		else if (len > 3 && len <= 6)
 		{
-			r = nb / 10;
-			// Decenas
-			printf("%s ",tens[r-2]);
-			nb /= 10;
-			len--;
+			r = nb / ft_iterative_power(10, len - 1);
+			ft_putstr(onedigits[r]);
+			ft_putstr(tenpow[1]);
 		}
-		else if (len == 3)
+		else if (len > 6 && len <= 9)
 		{
-			r = nb / 100;
-			// Centenas
-			printf("%s %s ",onedigits[r],tenpow[0]);
-			nb /= 10;
-			len--;
-		} 
-		else if (len == 4)
+			r = nb / ft_iterative_power(10, len - 1);
+			ft_putstr(onedigits[r]);
+			ft_putstr(tenpow[2]);
+		}
+		else if (len > 9 && len <= 12)
 		{
-			r = nb / 1000;
-			// Millares
-			printf("%s %s ",onedigits[r],tenpow[1]);
-			nb /= 10;
-			len--;
+			r = nb / ft_iterative_power(10, len - 1);
+			ft_putstr(onedigits[r]);
+			ft_putstr(tenpow[3]);
 		}
 	}
 }
 
-int main(int argc, char *argv[])
+void	deconu(int nb)
 {
-deconu(atoi(argv[1]));
-return 0;
+	int	len;
+
+	len = nbcount(nb);
+	while (len > 1)
+	{
+		printa_num(nb, len);
+		nb = nb % ft_iterative_power(10, len - 1);
+		len--;
+	}
 }
-	

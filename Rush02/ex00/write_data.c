@@ -6,7 +6,7 @@
 /*   By: srieder <srieder@student.42barcelo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 17:37:21 by srieder           #+#    #+#             */
-/*   Updated: 2022/07/23 18:41:04 by shortas-         ###   ########.fr       */
+/*   Updated: 2022/07/24 20:54:51 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,23 @@ char	*ft_strcat(char *dest, char *src)
 	return (dest);
 }
 
-int	main(int argc, char **argv)
+char	*write_data(void)
 {
-	int	doc;
-	int numbytes;
-	int iod;
+	int		doc;
+	int		numbytes;
+	int		iod;
 	char	buffer;
-	char 	*text = "";
+	char	*text;
 
 	text = malloc(200 * sizeof(char));
 	iod = 0;
-	doc = open(argv[1], O_RDONLY);
-
-	while ((numbytes = read(doc, &buffer, sizeof(char))) > 0)
+	doc = open("./.numbers.dict", O_RDONLY);
+	numbytes = read(doc, &buffer, sizeof(char));
+	while (numbytes > 0)
 	{
-		ft_strcat(text,&buffer);
+		ft_strcat(text, &buffer);
 	}
-	printf("Archivo de texto --> \n%s",text);
 	close(doc);
-	return (0);
+	free(text);
+	return (text);
 }
