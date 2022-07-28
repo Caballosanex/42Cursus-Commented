@@ -1,30 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_print_combn.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 13:54:40 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/07/26 13:14:17 by alexsanc         ###   ########.fr       */
+/*   Created: 2022/07/26 19:21:58 by alexsanc          #+#    #+#             */
+/*   Updated: 2022/07/26 19:36:44 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_putchar(char	c)
 {
-	int				i;
-	unsigned int	k;
+	write (1, &c, 1);
+	return (0);
+}
+
+void	ft_putcoma(void)
+{
+	ft_putchar(',');
+	ft_putchar(' ');
+}
+
+void	ft_printncheck(int x[], int n)
+{
+	int	i;
+	int	ok;
 
 	i = 0;
-	while (dest[i] != '\0')
-		i++;
-	k = 0;
-	while (src[k] != '\0' && k < nb)
+	ok = 1;
+	while (i < n - 1)
 	{
-		dest[i] = src[k];
+		if(!(x[i] < x [i + 1]))
+		{
+		ok = 0;
+		}
 		i++;
-		k++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	if (ok == 1)
+	{
+		i = 0;
+		while (i < n)
+		{
+			ft_putchar(x[i]);
+			i++;
+		}
+		if (x[0] != 57 - n + 1)
+		{
+			ft_putcoma();
+		}
+	}
 }
+
+void ft_print_combn(int n)
+

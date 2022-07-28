@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 13:54:40 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/07/26 13:14:17 by alexsanc         ###   ########.fr       */
+/*   Created: 2022/07/26 14:25:00 by alexsanc          #+#    #+#             */
+/*   Updated: 2022/07/27 12:11:43 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+#include <unistd.h>
+
+void	ft_putstr(char *str)
 {
-	int				i;
-	unsigned int	k;
+	int	i;
 
 	i = 0;
-	while (dest[i] != '\0')
-		i++;
-	k = 0;
-	while (src[k] != '\0' && k < nb)
+	while (str[i] != '\0')
 	{
-		dest[i] = src[k];
+		write (1, &str[i], 1);
 		i++;
-		k++;
 	}
-	dest[i] = '\0';
-	return (dest);
 }

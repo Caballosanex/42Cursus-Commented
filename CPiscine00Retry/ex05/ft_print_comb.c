@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 13:54:40 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/07/26 13:14:17 by alexsanc         ###   ########.fr       */
+/*   Created: 2022/07/10 14:31:21 by alexsanc          #+#    #+#             */
+/*   Updated: 2022/07/12 11:59:24 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
-{
-	int				i;
-	unsigned int	k;
+#include <unistd.h>
 
-	i = 0;
-	while (dest[i] != '\0')
-		i++;
-	k = 0;
-	while (src[k] != '\0' && k < nb)
+void	ft_print_comb(void)
+{
+	char	x;
+	char	y;
+	char	z;
+
+	x = '0';
+	while (x <= '7')
 	{
-		dest[i] = src[k];
-		i++;
-		k++;
+		y = x + 1;
+		while (y <= '8')
+		{
+			z = y + 1;
+			while (z <= '9')
+			{
+				write(1, &x, 1);
+				write(1, &y, 1);
+				write(1, &z, 1);
+				if (!(x == '7' && y == '8' && z == '9'))
+					write(1, ", ", 2);
+				z++;
+			}
+			y++;
+		}
+		x++;
 	}
-	dest[i] = '\0';
-	return (dest);
 }

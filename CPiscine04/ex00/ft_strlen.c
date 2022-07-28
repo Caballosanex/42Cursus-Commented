@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 13:54:40 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/07/26 13:14:17 by alexsanc         ###   ########.fr       */
+/*   Created: 2022/07/26 14:24:43 by alexsanc          #+#    #+#             */
+/*   Updated: 2022/07/26 14:50:23 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_strlen(char *str)
 {
-	int				i;
-	unsigned int	k;
+	int	i;
 
 	i = 0;
-	while (dest[i] != '\0')
-		i++;
-	k = 0;
-	while (src[k] != '\0' && k < nb)
+	while (str[i] != '\0')
 	{
-		dest[i] = src[k];
 		i++;
-		k++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (i);
 }

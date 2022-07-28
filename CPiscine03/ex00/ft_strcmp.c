@@ -6,9 +6,11 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 13:53:45 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/07/23 16:25:45 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/07/27 12:51:10 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 int	ft_strcmp(char *s1, char *s2)
 {
@@ -19,12 +21,11 @@ int	ft_strcmp(char *s1, char *s2)
 			i++;
 	return (s1[i] - s2[i]);
 }
-/*
+
 int	main(void)
 {
-	char *str1 = "abc";
-	char *str2 = "def";
+	char *str1 = "a";
+	char *str2 = "0";
 
 	printf("Res: %d", ft_strcmp(str1, str2));
 }
-*/

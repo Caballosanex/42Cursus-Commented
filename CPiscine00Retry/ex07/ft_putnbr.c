@@ -1,30 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 13:54:40 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/07/26 13:14:17 by alexsanc         ###   ########.fr       */
+/*   Created: 2022/07/12 15:47:20 by alexsanc          #+#    #+#             */
+/*   Updated: 2022/07/14 14:51:05 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
-{
-	int				i;
-	unsigned int	k;
+#include <unistd.h>
 
-	i = 0;
-	while (dest[i] != '\0')
-		i++;
-	k = 0;
-	while (src[k] != '\0' && k < nb)
-	{
-		dest[i] = src[k];
-		i++;
-		k++;
-	}
-	dest[i] = '\0';
-	return (dest);
+void	ft_putchar(char c)
+{
+	write (1, &c, 1);
 }
+
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
+	{
+		ft_putchar('-');
+		ft_putchar('2');
+		nb = 147483648;
+	}
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb *= -1;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else
+	{
+		ft_putchar(nb + 48);
+	}
+}
+/*int	main(void)
+{
+	ft_putnbr(45);
+}*/
