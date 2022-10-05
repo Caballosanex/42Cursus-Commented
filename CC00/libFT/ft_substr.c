@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:18:28 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/09/30 13:35:04 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:01:39 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
 	size_t	i;
-	int		temp;
+	size_t	temp;
 
 	i = 0;
 	if (s == NULL)
