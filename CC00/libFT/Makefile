@@ -6,7 +6,7 @@
 #    By: alexsanc <alexsanc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/15 12:06:35 by alexsanc          #+#    #+#              #
-#    Updated: 2022/10/05 13:00:42 by alexsanc         ###   ########.fr        #
+#    Updated: 2022/10/05 13:05:15 by alexsanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,9 @@ SRCS	  =		ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_st
 OBJS	  = 	$(SRCS:.c=.o)
 DEPS	= $(SRCS:.c=.d)
 
-BONUS	  = 	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
-				ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
-				ft_lstmap.c ft_lstnew.c ft_lstsize.c
+BONUS	  = 	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
+				ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
+				ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
 
 BONUSOBJS = 	$(BONUS:.c=.o)
 BONUSDEPS	= $(BONUS:.c=.d)
