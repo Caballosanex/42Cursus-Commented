@@ -6,7 +6,7 @@
 #    By: alexsanc <alexsanc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/15 12:06:35 by alexsanc          #+#    #+#              #
-#    Updated: 2022/10/05 13:21:24 by alexsanc         ###   ########.fr        #
+#    Updated: 2022/10/05 13:50:15 by alexsanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@
 
 NAME	= libft.a
 BNUS	= .bonus
+
+OBJ_DIR	= obj/
 
 #=========================VARIABLES=========================
 
@@ -25,24 +27,27 @@ SRCS	  =		ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_st
 				ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
 				ft_strmapi.c ft_striteri.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-OBJS	  = 	$(SRCS:.c=.o)
-DEPS	= $(SRCS:.c=.d)
+OBJS	= $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
+DEPS	= $(addsuffix .d, $(basename $(OBJS)))
 
 BONUS	  = 	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
 				ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
 				ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
 
-BONUSOBJS = 	$(BONUS:.c=.o)
-BONUSDEPS	= $(BONUS:.c=.d)
+BONUSOBJS	= $(addprefix $(OBJ_DIR), $(BONUS:.c=.o))
+BONUSDEPS	= $(addsuffix .d, $(basename $(BONUSOBJS)))
 
 
 CFLAGS  	  =	-Wall -Wextra -Werror -W -O3 -Ofast -g3
+# -W = Warnings
+# -03, -0fast, -g3 = Fast comp
 
 RMV	  	  =		rm -f
 
 #===========================RULES===========================
 
-%.o: %.c
+$(OBJ_DIR)%.o: %.c
+	mkdir -p $(dir $@)
 	$(CC) -MT $@ -MMD -MP $(INCLUDE) $(CFLAGS) -c $< -o $@
 
 # $< = Primer parametro de la rule.
@@ -70,7 +75,7 @@ $(BNUS): $(OBJS) $(BONUSOBJS)
 -include $(BONUSDEPS)
 
 clean:
-				$(RMV) $(OBJS) $(BONUSOBJS) $(DEPS) $(BONUSDEPS)
+				$(RMV) -r $(OBJ_DIR)
 
 fclean:			clean
 				$(RMV) $(NAME) $(BNUS)
