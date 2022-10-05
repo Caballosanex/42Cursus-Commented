@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
+/*   By: alexsanc <alexsanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 08:45:33 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/09/27 10:49:37 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:32:27 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}				t_list;
-
-typedef struct s_split_next
-{
-	size_t	start;
-	size_t	length;
-}				t_split_next;
+}					t_list;
 
 int				ft_atoi(const char *str);
 
@@ -45,8 +39,6 @@ int				ft_isdigit(int c);
 int				ft_isprint(int c);
 
 char			*ft_itoa(int n);
-
-void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
 
 void			*ft_memchr(const void *s, int c, size_t n);
 
