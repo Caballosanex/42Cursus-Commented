@@ -6,13 +6,14 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 08:45:33 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/10/06 11:27:15 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/10/06 12:01:31 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
