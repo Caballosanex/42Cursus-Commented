@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 08:45:33 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/10/06 12:01:31 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:41:56 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,3 +111,8 @@ void			ft_lstiter(t_list *lst, void (*f)(void*));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void *));
 
 #endif
+
+/* t_list is a pointer to a struct, so it is a struct pointer.
+This struct has two members: content and next.
+content's type is void pointer, which means it can point to anything.
+next is also a struct pointer, which means it can point to another struct. */

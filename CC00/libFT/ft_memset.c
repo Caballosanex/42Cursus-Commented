@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 13:44:44 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/10/06 11:26:06 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/10/10 09:21:20 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,9 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (b);
 }
+
+/* Casts the void pointer b to an unsigned char pointer.
+Casts the int c to an unsigned char.
+Sets the first len bytes of the block of memory pointed
+by b to the specified value c.
+Returns a pointer to the memory area b. */

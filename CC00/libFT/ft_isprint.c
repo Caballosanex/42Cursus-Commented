@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 12:00:30 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/10/06 11:25:18 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/10/07 13:20:34 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,3 +18,6 @@ int	ft_isprint(int c)
 		return (1);
 	return (0);
 }
+
+/* If the character is printable (In ASCII Table), return 1.
+Otherwise, return 0. */

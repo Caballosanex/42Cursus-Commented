@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:59:35 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/10/06 11:26:20 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:08:51 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ static int	ft_contar_palabras(char const *s, char c)
 	return (count);
 }
 
+/* It goes through the string, and counts the number of times
+it finds a character that is not the delimiter.
+It also counts the number of times it finds the delimiter
+character, and if the next character is not the delimiter character
+(or the end of the string), it increments the count.
+It then returns the count. */
+
 static int	ft_word_len(char const *s, char c)
 {
 	int		i;
@@ -40,6 +47,11 @@ static int	ft_word_len(char const *s, char c)
 		i++;
 	return (i);
 }
+
+/* Create a variable called i and set it to 0.
+While the current character is not null and not equal to the character "c"
+increment i.
+Return i, which is the length of the word. */
 
 static char	**ft_free(char **tab, int i)
 {
@@ -51,6 +63,13 @@ static char	**ft_free(char **tab, int i)
 	free(tab);
 	return (NULL);
 }
+
+/* The function ft_free takes a double pointer and an integer as parameters.
+The function will first free the memory allocated for each of the strings
+in the array (the strings are the i-th element of the array, where i goes from
+the value of the second parameter to 0).
+Then, the function will free the memory allocated for the array itself.
+Finally, the function returns NULL. */
 
 static char	**ft_fill_tab(char const *s, char c, char **tab)
 {
@@ -79,6 +98,17 @@ static char	**ft_fill_tab(char const *s, char c, char **tab)
 	return (tab);
 }
 
+/* i is the index of the string s, j is the index of the tab
+k is the index of the string tab[j].
+The function loops on the string s until it finds a character that is not c.
+If it finds a character that is not c, it allocates memory for the string
+tab[j] that will be the j-th string in the tab.
+It checks if the allocation was successful.
+While s[i] is not c, it fills the string tab[j] with the characters from s.
+It adds a null-terminating character at the end of the string and
+increments the index of the tab.
+it returns the tab. */
+
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
@@ -101,11 +131,11 @@ terminating character (i.e. the null character) and also if it is not equal to
 the delimiter character. If both are true, then the current character is
 copied to the tab array.
 
-2. If the current character is equal to the delimiter character, the current
+If the current character is equal to the delimiter character, the current
 character is not copied to the tab array, and the tab array is terminated by a
 null character.
 
-3. If the current character is the terminating character, then the tab array is
+If the current character is the terminating character, then the tab array is
 terminated by a null character, and the while loop is terminated.
 4. The while loop is then repeated for the next part of the string, until the
 entire string is processed. 

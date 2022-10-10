@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:18:28 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/10/06 11:27:05 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:39:11 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[i] = '\0';
 	return (str);
 }
+
+/* Checks if the string is NULL.
+Checks if the start is greater than the length of the string.
+If it is, return an empty string.
+Subtracts the start from the length of the string.
+If the length is less than the len, set len to the temp.
+Allocate memory for the new string.
+Copy the string to the new string.
+Add a null terminator to the end of the string. */

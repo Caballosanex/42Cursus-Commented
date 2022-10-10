@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:46:13 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/10/06 11:25:53 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/10/07 13:26:52 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,14 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return ((void *)s + i);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
+
+/* We declare a variable "i" and assign it 0.
+We then create a while loop that will run for as long as "i" is less than "n".
+We then check if the current index of the string "s" is equal
+to the character we are looking for "c".
+If it is, we return the address of that index.
+If not, we increment "i".
+If we reach the end of the while loop, it means we did not find
+the character "c" in the string "s", so we return NULL. */

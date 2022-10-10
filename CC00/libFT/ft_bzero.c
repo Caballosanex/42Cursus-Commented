@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 14:22:23 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/10/06 12:13:11 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/10/07 13:09:38 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,14 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
+
+/* We set the variable i to 0. This will be used as an index
+to access the elementsof the array.
+We start a while loop that will run until i is equal to n.
+This means that the loop will run n times.
+We set the element at index i to 0. We do this by using a
+cast to turn the void pointer into a char pointer. This is
+because the array is of type char. We can thenaccess the
+elements of the array using the index i. This is equivalent to
+s[i] = 0;
+We increment i to move on to the next element of the array. */

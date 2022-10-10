@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:59:57 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/10/07 10:23:08 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/10/07 13:34:53 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 /*	The function ft_strmapi() takes two arguments,
 a string s and a function f.
-
 We create a new string str and a variable i,
 which is an unsigned int.
-
 We set i to 0 and allocate memory for str, which
 is the size of the string s + 1 for the null terminator.
 If the allocation fails, the function returns NULL.
-
 We loop through the string s and use the function f to modify
 each character of the string s and store it in str.
 We set the last character of str to null and return str. */

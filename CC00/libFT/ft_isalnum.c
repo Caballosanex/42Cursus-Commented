@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 10:15:09 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/10/06 11:24:57 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/10/07 13:14:15 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,3 +19,8 @@ int	ft_isalnum(int c)
 		return (1);
 	return (0);
 }
+
+/* The function checks if the given character is an alphanumeric
+character, which means it is either a digit or a letter
+If the character is a digit or a letter,
+the function returns 1, otherwise it returns 0 */
