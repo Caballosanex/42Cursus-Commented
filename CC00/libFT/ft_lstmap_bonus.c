@@ -6,7 +6,10 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 14:57:56 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/10/06 11:25:44 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:09:53 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
