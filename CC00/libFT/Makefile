@@ -6,7 +6,7 @@
 #    By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/15 12:06:35 by alexsanc          #+#    #+#              #
-#    Updated: 2022/10/10 10:46:00 by alexsanc         ###   ########.fr        #
+#    Updated: 2022/10/11 13:13:20 by alexsanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ DEPS		= $(addsuffix .d, $(basename $(OBJS)))
 
 BONUS		= ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
 				ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
-				ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
+				ft_lstnew_bonus.c ft_lstsize_bonus.c
 
 BONUSOBJS	= $(addprefix $(OBJ_DIR), $(BONUS:.c=.o))
 BONUSDEPS	= $(addsuffix .d, $(basename $(BONUSOBJS)))
