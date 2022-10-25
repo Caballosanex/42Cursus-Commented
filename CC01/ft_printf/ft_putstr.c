@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 10:59:55 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/10/25 11:00:47 by alexsanc         ###   ########.fr       */
+/*   Created: 2022/10/24 12:26:46 by alexsanc          #+#    #+#             */
+/*   Updated: 2022/10/25 11:38:11 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_putchar(int c)
+int	ft_putstr(char *s)
 {
-	if (write(1, &c, 1) != 1)
-		return (ERR_NUM);
-	return (1);
-}
+	int	i;
 
-/* Function ft_putchar that writes a character
-to the standard output with write protection
-and returns -1 with ERR_NUM in case of error.*/
+	i = 0;
+	if (!s)
+		return (ERR_NUM);
+	while (s[i])
+	{
+		if (ft_putchar(s[i]) == ERR_NUM)
+			return (ERR_NUM);
+		i++;
+	}
+	return (i);
+}
