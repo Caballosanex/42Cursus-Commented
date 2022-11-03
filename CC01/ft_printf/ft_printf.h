@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 09:32:56 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/10/25 11:37:56 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:04:14 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ a macro for the message to be printed in case of NULL pointer */
 
 int		ft_printf(const char *str, ...);
 int		ft_putchar(int c);
-int		ft_void_hex(void *ptr);
+int		ft_ptr(void *ptr);
 int		ft_putstr(char *str);
 int		ft_putdec_int(int n);
 int		ft_putunsigned(unsigned int n);

@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:14:55 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/10/25 11:40:14 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/10/25 12:45:58 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_printf(const char *str, ...)
 	return (len);
 }
 
-static int type_var(char c, va_list element)
+static	int	type_var(char c, va_list element)
 {
 	if (c == 'c')
 		return (ft_putchar(va_arg(element, int)));

@@ -6,22 +6,22 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 12:26:46 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/10/25 11:38:11 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/11/03 11:49:05 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *s)
+int	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (!s)
+	if (!str)
 		return (ERR_NUM);
-	while (s[i])
+	while (str[i])
 	{
-		if (ft_putchar(s[i]) == ERR_NUM)
+		if (ft_putchar(str[i]) == ERR_NUM)
 			return (ERR_NUM);
 		i++;
 	}
