@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 09:32:56 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/11/03 12:04:14 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/11/08 16:47:26 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,15 @@ use for the printf. Including them as dump and maybe delete later */
 
 # define HEXA_LOW "0123456789abcdef"
 # define HEXA_UP "0123456789ABCDEF"
-# define DEC "0123456789"
-# define CONV "cspdiuxX%"
-/* CONV is a type of conversion that must be handled.
-We define a macro (Global Args) for the return value of
-the function printf in case of error. In addition we define
-a macro for the message to be printed in case of NULL pointer */
 
-int		ft_printf(const char *str, ...);
-int		ft_putchar(int c);
-int		ft_ptr(void *ptr);
-int		ft_putstr(char *str);
-int		ft_putdec_int(int n);
-int		ft_putunsigned(unsigned int n);
-int		ft_hexa_l(unsigned int n);
-int		ft_hexa_u(unsigned int n);
-
+int ft_printf(char const *s, ...);
+int ft_putchar(int c, int count);
+int ft_putstr(char *s, int count);
+int ft_type(va_list arg, char const type, int count);
+int ft_putnbr(int num, int count);
+int ft_printnum(unsigned int num, int count);
+int ft_ptr(void *pt, int count);
+int ft_convert(unsigned long int num, int count);
+int ft_hexa_l(unsigned int num, int count);
+int ft_hexa_u(unsigned int num, int count);
 #endif

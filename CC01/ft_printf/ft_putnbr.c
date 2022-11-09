@@ -6,45 +6,46 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:38:08 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/11/07 14:20:36 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/11/08 16:38:23 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int int_min(int n)
+int ft_putnbr(int num, int count)
 {
-	(void)n;
-	if (write(1, "-2147483648", 11) != 11)
-		return (-1);
-	return (11);
+	if (num == -2147483648)
+	{
+		count = ft_putstr("-2147483648", count);
+		if (count == ERR_NUM)
+			return (ERR_NUM);
+	}
+	else
+	{
+		if (num < 0)
+		{
+			count = ft_putchar('-', count);
+			if (count == ERR_NUM)
+				return (ERR_NUM);
+			num *= ERR_NUM;
+		}
+		count = ft_printnum(num, count);
+		if (count == ERR_NUM)
+			return (ERR_NUM);
+	}
+	return (count);
 }
 
-int ft_putnbr(int n)
+int ft_printnum(unsigned int num, int count)
 {
-	int let;
-
-	let = 0;
-	if (n == -2147483648)
-		return (int_min(n));
-	if (n < 0 && ++let)
+	if (num >= 10)
 	{
-		if (write(1, "-", 1) != 1)
-			return (-1);
-		n = -n;
+		count = ft_printnum(num / 10, count);
+		if (count == ERR_NUM)
+			return (ERR_NUM);
 	}
-	if (n > 9)
-	{
-		let += ft_putnbr(n / 10);
-		if (let == -1)
-			return (-1);
-		n = n % 10;
-	}
-	if (n <= 9)
-	{
-		if (ft_putchar(('0' + n)) == -1)
-			return (-1);
-		let++;
-	}
-	return (let);
+	count = ft_putchar((num % 10) + '0', count);
+	if (count == ERR_NUM)
+		return (ERR_NUM);
+	return (count);
 }

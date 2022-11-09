@@ -6,7 +6,7 @@
 #    By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/20 09:32:46 by alexsanc          #+#    #+#              #
-#    Updated: 2022/10/20 11:11:16 by alexsanc         ###   ########.fr        #
+#    Updated: 2022/11/08 16:46:08 by alexsanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ NAME	= libftprintf.a
 
 INCLUDE	= ft_printf.h
 
-SRCS		= ft_putchar.c \
-			ft_putnbr.c \
+SRCS		= ft_putchar.c ft_putstr.c ft_putnbr.c ft_ptr.c\
+			ft_hexa_l.c ft_hexa_u.c ft_printf.c
 			
 OBJS		= $(SRCS:.c=.o)
 DEPS		= $(addsuffix .d, $(basename $(SRCS)))
