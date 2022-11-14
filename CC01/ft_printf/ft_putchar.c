@@ -6,13 +6,13 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 10:59:55 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/11/08 16:03:40 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:11:16 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putchar(int c, int count)
+int	ft_putchar(int c, int count)
 {
 	if (write(1, &c, 1) != 1)
 		return (-1);
