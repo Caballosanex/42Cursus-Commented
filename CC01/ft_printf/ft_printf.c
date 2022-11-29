@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:14:55 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/11/14 10:20:14 by alexsanc         ###   ########.fr       */
+/*   Updated: 2022/11/22 10:36:55 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,9 @@ int	ft_printf(char const *s, ...)
 	return (count);
 }
 
-/* Here is the explanation for the code above:
-1. We create an int variable for the count of the
+/* We create an int variable for the count of the
 characters printed and a va_list variable for the arguments.
-2. We start the va_list.
-3. We send the arguments to the function ft_check.
-4. We end the va_list.
-5. We return the value of the variable count. */
+We start the va_list.
+We send the arguments to the function ft_check.
+We end the va_list.
+We return the value of the variable count. */
