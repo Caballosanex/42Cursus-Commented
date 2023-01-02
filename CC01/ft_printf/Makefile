@@ -6,20 +6,23 @@
 #    By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/20 09:32:46 by alexsanc          #+#    #+#              #
-#    Updated: 2022/11/22 10:41:20 by alexsanc         ###   ########.fr        #
+#    Updated: 2023/01/02 16:30:10 by alexsanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libftprintf.a
 
+OBJ_DIR = obj/
+
 #=========================VARIABLES=========================
 
-INCLUDE	= ft_printf.h
+INCLUDE	= -I ./
 
 SRCS		= ft_putchar.c ft_putstr.c ft_putnbr.c ft_ptr.c\
 			ft_hexa_l.c ft_hexa_u.c ft_printf.c
 			
-OBJS		= $(SRCS:.c=.o)
+OBJS		= $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
+DEPS		= $(addsuffix .d, $(basename $(OBJS)))
 
 # We use addsuffix to add the .d extension to the object files
 
@@ -32,8 +35,9 @@ RMV			= rm -f
 
 #===========================RULES===========================
 
-.c.o:
-				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+$(OBJ_DIR)%.o: %.c
+	mkdir -p $(dir $@)
+	$(CC) -MT $@ -MMD -MP $(INCLUDE) $(CFLAGS) -c $< -o $@
 
 # -c $< = Compile the source file
 # $< = first dependency
@@ -47,8 +51,10 @@ all:			$(NAME)
 $(NAME):		$(OBJS)
 				ar -rcs $(NAME) $(OBJS)
 
+-include $(DEPS)
+
 clean:
-				$(RMV) -r $(OBJS)
+				$(RMV) -r $(OBJ_DIR)
 fclean:			clean
 				$(RMV) $(NAME)
 
