@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/20 09:32:46 by alexsanc          #+#    #+#              #
-#    Updated: 2023/01/16 15:05:02 by alexsanc         ###   ########.fr        #
+#    Created: 2023/02/13 18:20:58 by alexsanc          #+#    #+#              #
+#    Updated: 2023/02/13 18:25:43 by alexsanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,18 +20,20 @@ INCLUDE	= -I ./
 
 # Specifies that the current directory (.) should be searched for header files.
 
+W_FLAGS			:= -Wall -Wextra -Werror
+SANITIZER		:= -g -fsanitize=address
+CFLAGS  	= $(W_FLAGS) $(SANITIZER) -W -O3 -Ofast -g3
+
+# -W = Warnings
+# -03, -0fast, -g3 = Fast comp
+
 SRCS		= ft_putchar.c ft_putstr.c ft_putnbr.c ft_ptr.c\
 			ft_hexa_l.c ft_hexa_u.c ft_printf.c
-			
+
 OBJS		= $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 DEPS		= $(addsuffix .d, $(basename $(OBJS)))
 
 # We use addsuffix to add the .d extension to the object files
-
-CFLAGS  	= -Wall -Wextra -Werror -W -O3 -Ofast -g3
-
-# -W = Warnings
-# -03, -0fast, -g3 = Fast comp
 
 RMV			= rm -f
 
@@ -70,6 +72,6 @@ re:				fclean all
 
 #=======================CLARIFICATIONS=======================
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re
 
 # .PHONY is used to avoid conflicts with files named clean, fclean, re, all
