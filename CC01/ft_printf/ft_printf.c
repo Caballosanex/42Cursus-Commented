@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:14:55 by alexsanc          #+#    #+#             */
-/*   Updated: 2023/01/02 15:51:09 by alexsanc         ###   ########.fr       */
+/*   Updated: 2023/01/30 14:01:28 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ int	ft_check(va_list arg, char const *s, int count)
 }
 
 /* ft_check() is called to check the string and call
-the functions to print the string and the argument. */
+the functions to print the string and the argument.
+We do i+1 to start evaluating the next character after % */
 
 int	ft_printf(char const *s, ...)
 {

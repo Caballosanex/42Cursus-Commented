@@ -6,7 +6,7 @@
 /*   By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 14:58:04 by alexsanc          #+#    #+#             */
-/*   Updated: 2022/10/10 12:21:49 by alexsanc         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:09:54 by alexsanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
+	t_list	*tmp;
+
+	tmp = *lst;
 	if (!lst || !new)
 		return ;
 	new->next = *lst;
