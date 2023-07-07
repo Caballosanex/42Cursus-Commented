@@ -15,12 +15,19 @@
 
 #ifndef BUFFER_SIZE
 #define BUFFER_SIZE 500
+/* Buffer size for reading, affects the way
+the program works by getting more or less
+characters at a time */
 #endif
 
 #include <fcntl.h>
+/* File decryptor control */
 #include <unistd.h>
+/* Read, write and others */
 #include <stdlib.h>
+/* Malloc, free and others */
 #include <string.h>
+/* String functions */
 
 /* UTILS TO USE */
 char *double_free(char **buff, char **buff_);
